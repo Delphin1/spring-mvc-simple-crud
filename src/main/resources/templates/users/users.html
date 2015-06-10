@@ -4,11 +4,13 @@
 
 <head>
     <meta charset="utf-8" />
-    <!--<link type="text/css" rel="stylesheet" href="../../resources/css/style.css" data-th-href="@{/resources/css/style.css}"/>-->
+    <link rel="stylesheet"
+          th:href="@{/css/bootstrap.min.css}"
+          href="../../css/bootstrap.min.css"/>
     <title th:text="#{users.page.title}">Title</title>
-</head>
+</head>k
 <body>
-   <input type="button" value="Новый пользователь" class="button" onclick="javascript:window.location='http://localhost:8080/mvc/users?new'" />
+   <input type="button" value="Новый пользователь" class="button" onclick="javascript:window.location='/mvc/users?new'" />
     <table>
         <thead>
             <tr>
