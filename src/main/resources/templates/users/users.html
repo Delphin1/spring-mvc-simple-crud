@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-       xmlns:th="http://www.thymeleaf.org">
-
+<html layout:decorator="layout/layout" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet"
-          th:href="@{/css/bootstrap.min.css}"
-          href="../../css/bootstrap.min.css"/>
-    <title th:text="#{users.page.title}">Title</title>
-</head>k
+    <title layout:fragment="title" th:text="#{users.page.title}">Users</title>
+</head>
+
 <body>
-   <input type="button" value="Новый пользователь" class="button" onclick="javascript:window.location='/mvc/users?new'" />
-    <table>
+   <div id="main" layout:fragment="content">
+    <p><input type="button"  class="btn btn-primary btn-sm" value="Новый пользователь" onclick="javascript:window.location='/mvc/users?new'" /></p>
+    <table class="table table-striped table-bordered">
+        <caption class="text-center lead" th:text="#{users.page.title}">Add Title</caption>
         <thead>
             <tr>
  <!--               <th scope="col" th:text="#{users.userId.label}">Id</th>-->
@@ -33,9 +31,9 @@
                 <td> <a th:href="@{users/edit/} + ${user.userId}" th:text="#{users.actions.edit.label}"> </a>
                      <a th:href="@{users/delete/} + ${user.userId}" th:text="#{users.actions.delete.label}"></a>
                 </td>
-
             </tr>
         </tbody>
     </table>
+    </div>
 </body>
 </html>

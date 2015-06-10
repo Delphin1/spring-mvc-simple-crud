@@ -84,4 +84,9 @@ public class UsersController {
         return "redirect:/mvc/users";
     }
 
+    @RequestMapping(value = "/content",  method=RequestMethod.GET)
+    public String testContent() {
+        return "content";
+    }
+
 }
