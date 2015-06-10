@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <!--<link type="text/css" rel="stylesheet" href="../../resources/css/style.css" data-th-href="@{/resources/css/style.css}"/>-->
+    <title th:text="#{users.page.title}">Title</title>
+</head>
+<body>
+   <input type="button" value="Новый пользователь" class="button" onclick="javascript:window.location='http://localhost:8080/mvc/users?new'" />
+    <table>
+        <thead>
+            <tr>
+ <!--               <th scope="col" th:text="#{users.userId.label}">Id</th>-->
+                <th scope="col" th:text="#{users.userName.label}">Имя</th>
+                <th scope="col" th:text="#{users.fullName.label}">Полное имя</th>
+                <th scope="col" th:text="#{users.userPassword.label}">Пароль</th>
+                <th scope="col" th:text="#{users.isDeleted.label}">Удалён</th>
+                <th scope="col" th:text="#{users.actions.label}">Удалён</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="user : ${users}">
+<!--                <td th:text="${user.userId}">Id</td>-->
+                <td th:text="${user.userName}">userName</td>
+                <td th:text="${user.fullName}">fullName</td>
+                <td th:text="${user.userPassword}">userPassword</td>
+                <td th:if="${user.isDeleted}" th:text="#{users.isNotDeleted.label}">Failed</td>
+                <td th:unless="${user.isDeleted}" th:text="#{users.isDeleted.label}">Passed</td>
+                <td> <a th:href="@{users/edit/} + ${user.userId}" th:text="#{users.actions.edit.label}"> </a>
+                     <a th:href="@{users/delete/} + ${user.userId}" th:text="#{users.actions.delete.label}"></a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

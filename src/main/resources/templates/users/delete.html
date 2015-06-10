@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <!--<link type="text/css" rel="stylesheet" href="../../resources/css/style.css" data-th-href="@{/resources/css/style.css}"/>-->
+    <title th:text="#{user.delete.page.title}">Title</title>
+</head>
+<body>
+   <div>
+       <form th:object="${user}" method="post">
+           <table>
+               <caption th:text="#{user.delete.page.title}">Add Title</caption>
+               <thead>
+               <tr>
+                   <th th:text="#{common.field.name.label}">Field Name</th>
+                   <th th:text="#{common.field.value.label}">Field Value</th>
+               </tr>
+               </thead>
+               <tbody>
+               <tr><td><input type="text" hidden="hidden" th:field="*{userId}"/></td><td></td></tr>
+               <tr><td th:text="#{users.userName.label}">userName</td> <td><input type="text" disabled="disabled" th:field="*{userName}"/></td></tr>
+               <tr><td th:text="#{users.fullName.label}">fullName</td> <td><input type="text" disabled="disabled" th:field="*{fullName}"/></td></tr>
+               <tr><td th:text="#{users.userPassword.label}">Password</td> <td><input type="text" disabled="disabled" th:field="*{userPassword}"/></td></tr>
+               <tr>
+                   <td>
+                       <button type="submit" name="action" value="delete" th:text="#{delete.button.label}">Delete</button>
+                   </td>
+                   <td>
+                       <button type="submit" name="action" value="cancel" th:text="#{cancel.button.label}">Cancel</button>
+                   </td>
+               </tr>
+               </tbody>
+           </table>
+       </form>
+   </div>
+</body>
+</html>
